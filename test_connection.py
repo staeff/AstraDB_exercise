@@ -11,7 +11,7 @@ with open('GeneratedToken', newline='') as csvfile:
 # https://docs.datastax.com/en/developer/python-driver/3.25/getting_started/
 
 cloud_config= {
-        'secure_connect_bundle': 'secure-connect-nosql-db.zip'
+        'secure_connect_bundle': 'secure-connect-my-first-serverless-database.zip'
 }
 auth_provider = PlainTextAuthProvider(client_id, client_secret)
 cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
