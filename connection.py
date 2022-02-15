@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-#WARNING: THIS FILE IS GOING TO BE OVERWRITTEN
-
 import atexit
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
+import csv
+
+with open('GeneratedToken', newline='') as csvfile:
+    reader = csv.reader(csvfile)
+    # Sktip the first line
+    next(reader)
+    client_id, client_secret, role, token = next(reader)
 
 # This is the Zip file you downloaded
-SECURE_CONNECT_BUNDLE = '/workspace/bootcamp-fullstack-apps-with-cassandra/secure-connect-workshops.zip'
+SECURE_CONNECT_BUNDLE = 'secure-connect-my-first-serverless-database.zip'
 # This is the "Client Id" value you obtained earlier
-USERNAME = ""
+USERNAME = client_id
 # This is the "Client Secret" value you obtained earlier
-PASSWORD = ""
+PASSWORD = client_secret
 # This is the keyspace name
 KEYSPACE = "todos"
 
